@@ -1,7 +1,6 @@
 window.rootElement = document.querySelector("#root");
 window.cacheLoads = 0;
 
-
 const cachedModules = {};
 
 function updateRouteInformation()
