@@ -43,6 +43,7 @@ async function navigate(moduleName)
 {
     moduleName = moduleName || window.page || "home";
     window.history.pushState({}, moduleName, `/?page=${moduleName}`);
+    document.adoptedStyleSheets = [];
 
     await importModules();
     
