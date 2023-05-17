@@ -4,8 +4,12 @@ h1 {
 
 a {
     color: red;
+    text-decoration: none;
+    border-bottom: 2px dotted red;
+    padding-bottom: 2px;
+    margin: 8px;
 }
 
 a:visited {
-    color: gold;
+    opacity: 0.8;
 }
