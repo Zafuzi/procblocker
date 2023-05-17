@@ -2,11 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="description" content="ProcBlocker - A simplified web framework">
+        <meta name="author" content="Zafuzi">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <title>ProcBlocker</title>
     </head>
     <body>
-        <h1>ProcBlocker</h1>
-        <div id="root"></div>
+        <header>
+            <h1>ProcBlocker</h1>
+            <nav>
+                <Link href="/?page=home" data-value="Home"/>
+                <Link href="/?page=about" data-value="About"/>
+                <Link href="/?page=login" data-value="Login"/>
+            </nav>
+        </header>
+        <main id="root"></main>
         <script type="module" src="local.mjs"></script>
     </body>
 </html>

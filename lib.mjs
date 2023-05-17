@@ -43,22 +43,25 @@ export async function navigate(moduleName)
 {
     moduleName = moduleName || window.page || "home";
     window.history.pushState({}, moduleName, `/?page=${moduleName}`);
-    document.adoptedStyleSheets = [];
+
+    const AppStyles = await import('/local.css', {assert: { type: 'css' }});
+    
+    document.adoptedStyleSheets = [AppStyles.default];
 
     await importModules();
+    window.cacheLoads++;
 
     if(!cachedModules[moduleName])
     {
         rootElement.innerHTML = `
             <h2>404</h2>
+            <p>CacheLoads: ${cacheLoads}</p>
             <p>Page: ${page} was not found...</p>
-            <Link href="/?page=home" data-value="Go Home"/>
         `;
     }
     else {
         console.log("navigating to", moduleName);
         await cachedModules[moduleName]?.default();
-        window.cacheLoads++;
     }
 
     replaceLinks();
